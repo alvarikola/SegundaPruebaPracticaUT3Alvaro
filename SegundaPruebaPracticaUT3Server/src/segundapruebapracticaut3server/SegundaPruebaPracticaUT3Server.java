@@ -83,14 +83,12 @@ public class SegundaPruebaPracticaUT3Server {
                     
                     
                     // Verificar el usuario y contraseña
-                    if (intentos < 3) {
-                        if ("user1".equals(username) || "user2".equals(username) || "user3".equals(username)) {
-                            if ("pas1".equals(password) || "pas2".equals(password) || "pas3".equals(password)) {
-                                output.println("Acceso permitido");
-                                output.println("Conexion finalizada. Adiós");
-                                mensaje += "Acceso permitido";
-                                socket.close();
-                            }
+                    if (intentos <= 3) {
+                        if ("user1".equals(username) && "pas1".equals(password) || "user2".equals(username) && "pas2".equals(password) || "user3".equals(username) && "pas3".equals(password)) {
+                            output.println("Acceso permitido");
+                            output.println("Conexion finalizada. Adiós");
+                            mensaje += "Acceso permitido";
+                            socket.close();
                         } else {
                             output.println("Acceso denegado");
                             mensaje += "Acceso denegado";
